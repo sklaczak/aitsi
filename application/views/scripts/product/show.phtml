@@ -1,0 +1,14 @@
+<div class="container productDetails">
+    <div class="productPhoto">
+        <img src="<?php echo SERVER_PHOTO . $this->product['foto']; ?>" alt="<?php echo $this->product['name']; ?>">
+    </div>
+    <h4 class="productName"><?php echo $this->product['name']; ?></h4>
+    <h4 class="productPrice"><?php echo $this->product['price']; ?> PLN</h4>
+    <p><?php echo $this->product['description']; ?></p>
+    <p>
+        <a href="#addProductId<?php echo $this->product['id']; ?>" 
+           class="btn btn-primary addToBasketButton" 
+           role="button" 
+           data-product_id="<?php echo $this->product['id']; ?>">Kup</a> 
+    </p>
+</div>

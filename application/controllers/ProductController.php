@@ -19,5 +19,15 @@ class ProductController extends Zend_Controller_Action {
         $paginator->setItemCountPerPage(16);
         $this->view->paginator = $paginator;
     }
+    
+    public function showAction() {
+        
+        $id = $this->getParam('product-id', false);
+        
+        $repository = new Application_Model_DbTable_Product();
+        $product = $repository->getOne($id);
+        $this->view->product = $product;
+        
+    }
 
 }

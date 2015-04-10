@@ -57,3 +57,7 @@
 .createOrderButton {
     float: right;
 }
+
+.productDetails * {
+    text-align: center;
+}
