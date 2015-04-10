@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Sebastian Klaczak">
+        <link rel="icon" href="/favicon.ico">
+
+        <title>AiTSI Project E-commerce</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Custom styles for this template -->
+        <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
+        <link href="/css/shop.css" rel="stylesheet">
+    </head>
+    <!-- NAVBAR
+    ================================================== -->
+    <body>
+        <div class="navbar-wrapper">
+            <div class="container">
+
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">AiTSI Project E-commerce</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/">Strona główna</a></li>
+                                <li><a href="/page/about">O projekcie</a></li>
+                                <li><a href="/page/contact">Kontakt</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Oferta <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::WOMAN)); ?>">Obuwie damskie</a></li>
+                                        <li><a href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::MEN)); ?>">Obuwie meskie</a></li>
+                                        <li><a href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::ACCESSORIES)); ?>">Akcesoria</a></li>
+                                        <li class="divider"></li>
+                                        <?php foreach ($this->layout()->type as $type): ?>
+                                            <li><a href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => $type['id'])); ?>"><?php echo $type['name']; ?></a></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Twoje konto <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="<?php echo $this->url(array('controller' => 'basket', 'action' => 'show')); ?>">Twój koszyk</a></li>
+                                        <li><a href="<?php echo $this->url(array('controller' => 'order', 'action' => 'list')); ?>">Twoje zamówienia</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <div class="container" id="basketInfo">
+            <a href="/basket/show" type="button" class="btn btn-default btn-lg">
+                (<span id="basketInfoQuantity">
+                    <?php echo (isset($this->layout()->basket->itemsQuantity) ? $this->layout()->basket->itemsQuantity : '0')  ?>
+                    </span>)
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 
+                Twoj koszyk :
+                <span id="basketInfoPrice">
+                    <?php echo (isset($this->layout()->basket->sum) ? $this->layout()->basket->sum : '0')  ?>
+                </span> PLN
+            </a>
+        </div>
+        
+        <?php echo $this->layout()->content; ?>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+            <p class="pull-right"><a href="#">Do góry</a></p>
+            <p>&copy; 2015 Sebastian Klaczak &middot; <a href="/page/private">Polityka prywatności</a> &middot; <a href="/page/terms">Regulamin</a></p>
+            </div>
+        </footer>
+
+    </div><!-- /.container -->
+
+    <div class="modal fade" id="basketResponceDialog" data-server_photo="<?php echo SERVER_PHOTO; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Produkt został dodany do koszyka</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="productPhoto"></div>
+                    <p><h4 class="productName"></h4></p>
+                    <p><h4 class="productPrice"></h4></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/product/list" type="button" class="btn btn-default" data-dismiss="modal">Kontynuuj  zakupy</a>
+                    <a href="/basket/show" type="button" class="btn btn-primary">Koszyk</a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/shop.js"></script>
+</body>
+</html>

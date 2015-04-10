@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Twoje zamówienia</div>
+        <div class="panel-body">
+
+            <?php if (isset($this->orders) && count($this->orders) > 0) : ?>
+                <p>
+                <table class="table basketTable">
+                    <tr>
+                        <th>Id</th>
+                        <th>Imie</th>
+                        <th>Email</th>
+                        <th>Adres</th>
+                        <th>Kwota</th>
+                        <th>Data złożenia</th>
+                    </tr>
+                    <?php foreach ($this->orders as $order) : ?>
+                            <tr>
+                                <td><?php echo $order['id']; ?></td>
+                                <td><?php echo $order['name']; ?></td>
+                                <td><?php echo $order['email']; ?></td>
+                                <td><?php echo $order['address']; ?></td>
+                                <td><?php echo $order['amount']; ?> PLN</td>
+                                <td><?php echo $order['creation_date']; ?></td>
+                            </tr>
+                    <?php endforeach; ?>
+                </table>
+                </p>
+            <?php else : ?>
+                <p>Brak zamówień.</p>
+            <?php endif; ?>    
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container">
+<!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="\img\sample\slider-1.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Buty damskie</h1>
+              <p>Najlepsze buty damskie znajdą Państwo właśnie tutaj, w internetowym sklepie obuwniczym.</p>
+              <p><a class="btn btn-lg btn-primary" href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::WOMAN)); ?>" role="button">Zobacz ofertę</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="\img\sample\slider-2.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Buty męskie</h1>
+              <p>Zapoznaj się z ofertą butów męskich w sklepie internetowym.</p>
+              <p><a class="btn btn-lg btn-primary" href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::MEN)); ?>" role="button">Zobacz ofertę</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="\img\sample\slider-3.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Akcesoria</h1>
+              <p>Zapoznaj się z ofertą akcesorii w sklepie internetowym.</p>
+              <p><a class="btn btn-lg btn-primary" href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::ACCESSORIES)); ?>" role="button">Zobacz ofertę</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Poprzednie</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">następne</span>
+      </a>
+    </div><!-- /.carousel -->
+    </div>
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img" src="http://zebra-buty.pl/images/buty/big/_1427461631.jpg" alt="Obuwie damskie" width="140" height="140">
+          <h2>Damskie</h2>
+          <p>Najlepsze buty damskie znajdą Państwo właśnie tutaj, w internetowym sklepie obuwniczym.</p>
+          <p><a class="btn btn-default" href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::WOMAN)); ?>" role="button">Zobacz &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img" src="http://zebra-buty.pl/images/buty/big/_1426169814.jpg" alt="Obuwie męskie" width="140" height="140">
+          <h2>Męskie</h2>
+          <p>Zapoznaj się z ofertą butów męskich w sklepie internetowym. Gwarantujemy, że każdy mężczyzna dobierze tutaj buty dla siebie, w zależności od okazji i gustu. Jeśli szukasz dobrych butów męskich - u nas je znajdziesz. Wszystkie buty męskie dostępne do przeglądnięcia są właśnie na tej stronie.</p>
+          <p><a class="btn btn-default" href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::MEN)); ?>" role="button">Zobacz &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img" src="http://zebra-buty.pl/images/buty/big/_1426256532.jpg" alt="Akcesoria" width="140" height="140">
+          <h2>Akcesoria</h2>
+          <p>Akcesoria cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="<?php echo $this->url(array('controller' => 'product', 'action' => 'list', 'type' => Application_Model_DbTable_Type::ACCESSORIES)); ?>" role="button">Zobacz &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->

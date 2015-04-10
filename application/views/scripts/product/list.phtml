@@ -1,0 +1,38 @@
+<div class="container">
+
+
+    <?php if (count($this->paginator)): ?>
+
+        <?php echo $this->paginationControl($this->paginator, 'Sliding', '_paginator.phtml');?>
+    
+        <div class="row">
+            <?php foreach ($this->paginator as $product) : ?>
+
+                <div class="col-sm-4 col-md-3 productItem">
+                    <div class="thumbnail">
+                        <div class="productPhoto">
+                            <img src="<?php echo SERVER_PHOTO . $product['foto']; ?>" alt="<?php echo $product['name']; ?>">
+                        </div>
+                        <div class="caption">
+                            <h4 class="productName"style="height: 3em;"><?php echo $product['name']; ?></h4>
+                            <h4 class="productPrice"><?php echo $product['price']; ?> PLN</h4>
+                            <p><?php //echo $product['description'];   ?></p>
+                            <p>
+                                <a href="#addProductId<?php echo $product['id']; ?>" 
+                                   class="btn btn-primary addToBasketButton" 
+                                   role="button" 
+                                   data-product_id="<?php echo $product['id']; ?>">Kup</a> 
+                                <a href="/product/show/product-id/<?php echo $product['id']; ?>" class="btn btn-default" role="button">Zobacz</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endforeach; ?>
+        </div>
+        <?php echo $this->paginationControl($this->paginator, 'Sliding', '_paginator.phtml'); ?>
+
+    <?php endif; ?>
+
+
+</div>

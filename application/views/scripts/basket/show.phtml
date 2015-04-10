@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Koszyk</div>
+        <div class="panel-body">
+
+            <?php if (isset($this->basket->items) && count($this->basket->items) > 0) : ?>
+                <p>
+                    <a href="<?php echo $this->url(array('controller' => 'basket', 'action' => 'clear')); ?>" class="btn btn-default" role="button">Wyczyść koszyk</a>
+                    <a href="<?php echo $this->url(array('controller' => 'order', 'action' => 'index')); ?>" class="btn btn-primary createOrderButton">Złóż zamówienie</a> 
+                </p>
+                <p>
+                <table class="table basketTable">
+                    <tr>
+                        <th colspan="2">Produkt</th>
+                        <th>Ilość</th>
+                        <th>Cena</th>
+                    </tr>
+                    <?php foreach ($this->basket->items as $id => $line) : ?>
+                        <?php foreach ($line as $price => $item) : ?>
+                            <?php $product = $item['info']; ?>
+                            <tr>
+                                <td><img src="<?php echo SERVER_PHOTO . $product['foto']; ?>" alt="<?php echo $product['name']; ?>"></td>
+                                <td><?php echo $product['name']; ?></td>
+                                <td><?php echo $item['quantity']; ?></td>
+                                <td><?php echo $price; ?> PLN</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                            <tr>
+                                <th colspan="3" class="text-right">Razem:</th>
+                                <th><?php echo $this->basket->sum; ?> PLN</th>
+                            </tr>
+                </table>
+                </p>
+                <p>
+                    <a href="<?php echo $this->url(array('controller' => 'basket', 'action' => 'clear')); ?>" class="btn btn-default" role="button">Wyczyść koszyk</a>
+                    <a href="<?php echo $this->url(array('controller' => 'order', 'action' => 'index')); ?>" class="btn btn-primary createOrderButton">Złóż zamówienie</a> 
+                </p>
+            <?php else : ?>
+                <p>Twój koszyk jest pusty.</p>
+            <?php endif; ?>    
+
+        </div>
+    </div>
+</div>
