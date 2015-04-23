@@ -74,50 +74,48 @@
         <div class="container" id="basketInfo">
             <a href="/basket/show" class="btn btn-default btn-lg">
                 (<span id="basketInfoQuantity">
-                    <?php echo (isset($this->layout()->basket->itemsQuantity) ? $this->layout()->basket->itemsQuantity : '0')  ?>
-                    </span>)
+                    <?php echo (isset($this->layout()->basket->itemsQuantity) ? $this->layout()->basket->itemsQuantity : '0') ?>
+                </span>)
                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 
                 Twoj koszyk :
                 <span id="basketInfoPrice">
-                    <?php echo (isset($this->layout()->basket->sum) ? $this->layout()->basket->sum : '0')  ?>
+                    <?php echo (isset($this->layout()->basket->sum) ? $this->layout()->basket->sum : '0') ?>
                 </span> PLN
             </a>
         </div>
-        
+
         <?php echo $this->layout()->content; ?>
 
         <!-- FOOTER -->
         <footer>
             <div class="container">
-            <p class="pull-right"><a href="#">Do góry</a></p>
-            <p>&copy; 2015 Sebastian Klaczak &middot; <a href="/page/private">Polityka prywatności</a> &middot; <a href="/page/terms">Regulamin</a></p>
+                <p class="pull-right"><a href="#">Do góry</a></p>
+                <p>&copy; 2015 Sebastian Klaczak &middot; <a href="/page/private">Polityka prywatności</a> &middot; <a href="/page/terms">Regulamin</a></p>
             </div>
         </footer>
 
-    </div><!-- /.container -->
+        <div class="modal fade" id="basketResponceDialog" data-server_photo="<?php echo SERVER_PHOTO; ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Produkt został dodany do koszyka</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="productPhoto"></div>
+                        <h4 class="productName">product Name</h4>
+                        <h4 class="productPrice">product Price</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/product/list" class="btn btn-default" data-dismiss="modal">Kontynuuj  zakupy</a>
+                        <a href="/basket/show" class="btn btn-primary">Koszyk</a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->    
 
-    <div class="modal fade" id="basketResponceDialog" data-server_photo="<?php echo SERVER_PHOTO; ?>">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Produkt został dodany do koszyka</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="productPhoto"></div>
-                    <h4 class="productName">product Name</h4>
-                    <h4 class="productPrice">product Price</h4>
-                </div>
-                <div class="modal-footer">
-                    <a href="/product/list" class="btn btn-default" data-dismiss="modal">Kontynuuj  zakupy</a>
-                    <a href="/basket/show" class="btn btn-primary">Koszyk</a>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->    
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="/js/shop.js"></script>
-</body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="/js/shop.js"></script>
+    </body>
 </html>
