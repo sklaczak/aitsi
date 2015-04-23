@@ -65,3 +65,11 @@
 footer {
     margin-top: 20px;
 }
+
+#aboutPage img {
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid silver;
+    margin: 0 auto;
+    display: block;
+}
