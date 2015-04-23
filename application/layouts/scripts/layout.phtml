@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="container" id="basketInfo">
-            <a href="/basket/show" type="button" class="btn btn-default btn-lg">
+            <a href="/basket/show" class="btn btn-default btn-lg">
                 (<span id="basketInfoQuantity">
                     <?php echo (isset($this->layout()->basket->itemsQuantity) ? $this->layout()->basket->itemsQuantity : '0')  ?>
                     </span>)
@@ -105,12 +105,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="productPhoto"></div>
-                    <p><h4 class="productName"></h4></p>
-                    <p><h4 class="productPrice"></h4></p>
+                    <h4 class="productName">product Name</h4>
+                    <h4 class="productPrice">product Price</h4>
                 </div>
                 <div class="modal-footer">
-                    <a href="/product/list" type="button" class="btn btn-default" data-dismiss="modal">Kontynuuj  zakupy</a>
-                    <a href="/basket/show" type="button" class="btn btn-primary">Koszyk</a>
+                    <a href="/product/list" class="btn btn-default" data-dismiss="modal">Kontynuuj  zakupy</a>
+                    <a href="/basket/show" class="btn btn-primary">Koszyk</a>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
